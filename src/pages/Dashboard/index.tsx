@@ -6,6 +6,7 @@ import {
   DashboardContainer,
   DashboardContent,
   DashboardContentHeader,
+  DashboardLineDivider,
 } from "./styles";
 import owingIcon from "../../assets/icons/owing.svg";
 import overdueIcon from "../../assets/icons/overdue.svg";
@@ -32,12 +33,15 @@ export function Dashboard() {
         />
         <CardsExpenseInfo title="Total gastos - Junho" amount="R$ 120,00" />
       </DashboardCards>
+      <DashboardLineDivider />
       <DashboardContent>
         <DashboardContentHeader>
           <SelectGroup />
           <Button color="#EB5757">Inserir despesa</Button>
         </DashboardContentHeader>
         <DashboardCardsGroupContainer>
+          <CardGroup />
+          <CardGroup />
           <CardGroup />
           <CardGroup />
           <CardGroup />
