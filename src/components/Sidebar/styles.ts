@@ -2,14 +2,11 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const SidebarContainer = styled.div`
-  /* position: fixed; */
-  max-width: 17.375rem;
-  width: 100%;
-  max-width: 100vh;
+  position: fixed;
+  width: 17.375rem;
   height: 100vh;
   padding: 3.375rem 1.6875rem;
   border-radius: 0px 25px 25px 0px;
-
   background: ${(props) => props.theme.colors["green-800"]};
 
   a {
