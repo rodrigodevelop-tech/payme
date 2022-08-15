@@ -30,5 +30,6 @@ export const DashboardCardsGroupContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 2.125rem;
+  flex-wrap: wrap;
+  margin-block: 2.125rem;
 `;
