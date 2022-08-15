@@ -7,12 +7,19 @@ import {
 } from "./styles";
 import notificationIcon from "../../assets/icons/notification.svg";
 import avatarImg from "../../assets/images/avatar.jpg";
-import Button from "../Button";
+import { ReactElement, useState } from "react";
+import Modal from "../Modal";
 
-export default function Header() {
+interface HeaderProps {
+  title: string;
+  button?: ReactElement;
+}
+
+export default function Header({ title, button }: HeaderProps) {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <HeaderContainer>
-      <HeaderTitle>Dashboard</HeaderTitle>
+      <HeaderTitle>{title}</HeaderTitle>
       <HeaderContent>
         <HeaderNotifications>
           <img
@@ -21,7 +28,8 @@ export default function Header() {
           />
         </HeaderNotifications>
         <HeaderAvatar src={avatarImg} alt="Imagem de perfil" />
-        <Button color="#51de9a">Criar grupo</Button>
+        <div onClick={() => setOpenModal(true)}>{button}</div>
+        <Modal openModal={openModal} setOpenModal={setOpenModal} />
       </HeaderContent>
     </HeaderContainer>
   );

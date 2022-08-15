@@ -38,17 +38,20 @@ export const CardGroupDateCreate = styled.time`
 
   color: ${(props) => props.theme.colors["gray-600"]};
 `;
-export const CardGroupCode = styled.div`
+export const CardGroupCode = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.875rem;
   padding: 0.2rem 1rem;
   margin-block: 2rem;
+  background: ${(props) => props.theme.colors.white};
 
   color: ${(props) => props.theme.colors["text-black"]};
   border-radius: 4px;
   border: 2px solid ${(props) => props.theme.colors["text-black"]};
+
+  cursor: pointer;
 `;
 
 export const CardGroupUsersAvatar = styled.div`

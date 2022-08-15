@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const DashboardContainer = styled.div`
   width: 100%;
-  max-width: 1124px;
 `;
 
 export const DashboardCards = styled.div`

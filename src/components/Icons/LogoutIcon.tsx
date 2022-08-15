@@ -1,10 +1,6 @@
 import { SVGProps } from "react";
 
-interface IconProps extends SVGProps<SVGSVGElement> {
-  color?: string;
-}
-
-export const LogoutIcon = ({ color, ...props }: IconProps) => (
+export const LogoutIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width="1em"
     height="1em"
@@ -15,7 +11,7 @@ export const LogoutIcon = ({ color, ...props }: IconProps) => (
   >
     <path
       d="M6.45829 28.4167C6.11572 28.4167 5.78718 28.2806 5.54495 28.0384C5.30271 27.7962 5.16663 27.4676 5.16663 27.125V3.87504C5.16663 3.53247 5.30271 3.20393 5.54495 2.96169C5.78718 2.71946 6.11572 2.58337 6.45829 2.58337H24.5416C24.8842 2.58337 25.2127 2.71946 25.455 2.96169C25.6972 3.20393 25.8333 3.53247 25.8333 3.87504V27.125C25.8333 27.4676 25.6972 27.7962 25.455 28.0384C25.2127 28.2806 24.8842 28.4167 24.5416 28.4167H6.45829ZM19.375 20.6667L25.8333 15.5L19.375 10.3334V14.2084H11.625V16.7917H19.375V20.6667Z"
-      fill={color || "white"}
+      fill="white"
     />
   </svg>
 );

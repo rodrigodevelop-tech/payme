@@ -11,16 +11,18 @@ import {
   CardGroupUsersAvatar,
 } from "./styles";
 import avatarImg from "../../../../assets/images/avatar.jpg";
-import ProgressBar from "../ProgressBar";
+import ProgressBar from "../../../../components/ProgressBar";
+import { useNavigate } from "react-router-dom";
 
 export default function CardGroup() {
+  const navigate = useNavigate();
   return (
     <CardGroupContainer>
       <CardGroupHeader>
         <CardGroupTitle>Compras do Mês</CardGroupTitle>
         <CardGroupDateCreate>17/06/2022</CardGroupDateCreate>
       </CardGroupHeader>
-      <CardGroupCode>
+      <CardGroupCode onClick={() => navigate("/despesas")}>
         <span>FHG13E</span>
         <Copy size={15} />
       </CardGroupCode>
@@ -35,7 +37,7 @@ export default function CardGroup() {
           <span>R$ 645,00</span>
           <span>R$ 600,00</span>
         </CardGroupBarProgressInfo>
-        <ProgressBar />
+        <ProgressBar value={66} />
       </CardGroupBarProgressContainer>
       <CardGroupFooter>
         <span>Vence em 22/05/2022</span>

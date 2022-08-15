@@ -17,9 +17,42 @@ import { useState } from "react";
 import { LogoutIcon } from "../Icons/LogoutIcon";
 import { useLocation } from "react-router-dom";
 
+const routes = [
+  {
+    id: 1,
+    title: "Dashboard",
+    icon: <DashboardIcon />,
+    path: "/dashboard",
+  },
+  {
+    id: 2,
+    title: "Grupos",
+    icon: <PeopleGroupIcon />,
+    path: "/grupos",
+  },
+  {
+    id: 3,
+    title: "Despesas",
+    icon: <MoneyCheckDollarIcon />,
+    path: "/despesas",
+  },
+  {
+    id: 4,
+    title: "Configurações",
+    icon: <SettingFilledIcon />,
+    path: "/configuracoes",
+  },
+  {
+    id: 5,
+    title: "Logout",
+    icon: <LogoutIcon />,
+    path: "/logout",
+  },
+];
+
 export function Sidebar() {
-  const [activeLink, setActiveLink] = useState(true);
   const { pathname } = useLocation();
+  const [activeLink, setActiveLink] = useState(pathname);
 
   return (
     <SidebarContainer>
@@ -27,38 +60,19 @@ export function Sidebar() {
         <img src={paymeLogo} alt="" />
       </SidebarHeader>
       <SidebarContent>
-        <SidebarItem to="/dashboard">
-          <SidebarItemIcon activeLink={pathname === "/dashboard"}>
-            {activeLink && <SidebarItemActiveBorder />}
-            <DashboardIcon color={activeLink ? "#1D2A30" : ""} />
-          </SidebarItemIcon>
-          <SidebarItemTitle>Dashboard</SidebarItemTitle>
-        </SidebarItem>
-        <SidebarItem to="/groups">
-          <SidebarItemIcon activeLink={pathname === "/groups"}>
-            <PeopleGroupIcon />
-          </SidebarItemIcon>
-          <SidebarItemTitle>Grupos</SidebarItemTitle>
-        </SidebarItem>
-        <SidebarItem to="/expenses">
-          <SidebarItemIcon activeLink={pathname === "/expenses"}>
-            <MoneyCheckDollarIcon />
-          </SidebarItemIcon>
-          <SidebarItemTitle>Despesas</SidebarItemTitle>
-        </SidebarItem>
-        <SidebarItem to="/setting">
-          <SidebarItemIcon activeLink={pathname === "/setting"}>
-            <SettingFilledIcon />
-          </SidebarItemIcon>
-          <SidebarItemTitle>Configurações</SidebarItemTitle>
-        </SidebarItem>
-        <SidebarDivider />
-        <SidebarItem to="/logout">
-          <SidebarItemIcon activeLink={pathname === "/logout"}>
-            <LogoutIcon />
-          </SidebarItemIcon>
-          <SidebarItemTitle>Sair</SidebarItemTitle>
-        </SidebarItem>
+        {routes.map((route) => (
+          <SidebarItem
+            key={route.id}
+            to={route.path}
+            onClick={() => setActiveLink(route.path)}
+          >
+            <SidebarItemIcon activeLink={pathname === route.path}>
+              {activeLink === route.path ? <SidebarItemActiveBorder /> : null}
+              {route.icon}
+            </SidebarItemIcon>
+            <SidebarItemTitle>{route.title}</SidebarItemTitle>
+          </SidebarItem>
+        ))}
       </SidebarContent>
     </SidebarContainer>
   );

@@ -76,6 +76,12 @@ export const SidebarItemIcon = styled.div<SidebarItemIconProps>`
   svg {
     width: 31px;
     height: 31px;
+    path {
+      fill: ${(props) =>
+        props.activeLink
+          ? props.theme.colors["green-800"]
+          : props.theme.colors.white};
+    }
   }
 `;
 
